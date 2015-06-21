@@ -6,7 +6,7 @@
 #include <QAction>
 #include <QMenu>
 #include <QMenuBar>
-#include "View/ImageLabel.h"
+#include "ImageLabel.h"
 
 #include <string>
 #include <iostream>
@@ -15,7 +15,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-#include "Model/SpiltRectangleModel.h"
+#include "SpiltRectangleModel.h"
 #include "SettingDialog.h"
 #include "StatusLabelWidget.h"
 
@@ -54,8 +54,6 @@ public slots:
     void selectSpiltHip();
     void selectPoint();
     void changeFrame(int value);
-    void saveRectangle();
-    void saveToBMP();
 };
 
 #endif // MAINWINDOW_H

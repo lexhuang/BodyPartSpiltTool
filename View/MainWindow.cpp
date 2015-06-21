@@ -15,7 +15,6 @@ MainWindow::MainWindow(QWidget *parent) :
     this->statusLabelWidget = new StatusLabelWidget(this);
     this->dialogSetting = new SettingDialog(this);
     this->ui->statusBar->addWidget(this->statusLabelWidget);
-
 }
 
 MainWindow::~MainWindow()
@@ -31,15 +30,13 @@ void MainWindow::setAction()
     QObject::connect(this->ui->actionPoint, SIGNAL(triggered()), this, SLOT(selectPoint()));
     QObject::connect(this->ui->actionSpiltHead, SIGNAL(triggered()), this, SLOT(selectSpiltHead()));
     QObject::connect(this->ui->actionSpiltHip, SIGNAL(triggered()), this, SLOT(selectSpiltHip()));
-    QObject::connect(this->ui->actionSaveRectangle, SIGNAL(triggered()), this, SLOT(saveRectangle()));
-    QObject::connect(this->ui->actionSaveBMP, SIGNAL(triggered()), this, SLOT(saveToBMP()));
 }
 
 void MainWindow::openLoadFileDialog()
 {
-    QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"), "~/", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
-    string folderPath = dir.toStdString();
-//    string folderPath = "/home/lexhuang/humanSample/";
+//    QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"), "/home", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+//    string folderPath = dir.toStdString();
+    string folderPath = "/home/lexhuang/humanSample/";
 //    string folderPath = "/home/lexhuang/1m2m/";
     model.setFolderPath(folderPath);
     this->ui->horizontalSlider->setRange(0, model.getFileCount() - 1);
@@ -81,16 +78,6 @@ void MainWindow::changeFrame(int value)
     this->ui->fileCountlabel->setText(QString::fromStdString(BasicHelper::intToString(model.getNowFileId() + 1) + "/" + BasicHelper::intToString(model.getFileCount())));
     this->ui->fileNameLabel->setText(QString::fromStdString(model.getNowFileName()));
     image->loadMatFromFilepath(model.getNowFilePath());
-}
-
-void MainWindow::saveRectangle()
-{
-    //    model.setRectangle();
-}
-
-void MainWindow::saveToBMP()
-{
-    model.saveFrameToBMP(image->getFrameProcess());
 }
 
 void MainWindow::setMenu()

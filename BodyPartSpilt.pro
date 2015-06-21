@@ -14,12 +14,19 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         MainWindow.cpp \
-    ImageLabel.cpp
+    SettingDialog.cpp \
+    Model/BasicHelper.cpp \
+    Model/SpiltRectangleModel.cpp \
+    View/ImageLabel.cpp
 
 HEADERS  += MainWindow.h \
-    ImageLabel.h
+    SettingDialog.h \
+    Model/BasicHelper.h \
+    Model/SpiltRectangleModel.h \
+    View/ImageLabel.h
 
-FORMS    += MainWindow.ui
+FORMS    += MainWindow.ui \
+    SettingDialog.ui
 
 INCLUDEPATH +=  /usr/local/include \
                 /usr/local/include/opencv \

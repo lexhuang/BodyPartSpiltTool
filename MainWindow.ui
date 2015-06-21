@@ -25,14 +25,85 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <property name="sizeConstraint">
-      <enum>QLayout::SetMaximumSize</enum>
+      <enum>QLayout::SetDefaultConstraint</enum>
      </property>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+        <widget class="QLabel" name="xLabel">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>12</width>
+           <height>17</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>x:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="xLineEdit">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="yLabel">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>y:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="yLineEdit">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
      <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-      <widget class="ImageLabel" name="label">
+      <widget class="ImageLabel" name="imageLabel">
        <property name="text">
         <string>TextLabel</string>
        </property>
       </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMinimumSize</enum>
+       </property>
+       <item alignment="Qt::AlignRight|Qt::AlignVCenter">
+        <widget class="QLabel" name="fileCountlabel">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
+        <widget class="QLabel" name="fileNameLabel">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
       <widget class="QSlider" name="horizontalSlider">
@@ -65,23 +136,57 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionPoint"/>
    <addaction name="actionSpiltHead"/>
-   <addaction name="actionActionSpilthip"/>
+   <addaction name="actionSpiltHip"/>
+   <addaction name="separator"/>
+   <addaction name="actionSaveRectangle"/>
+   <addaction name="actionSaveBMP"/>
   </widget>
   <action name="actionSpiltHead">
    <property name="checkable">
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>spiltHead</string>
+    <string>SpiltHead</string>
+   </property>
+   <property name="shortcut">
+    <string>W</string>
    </property>
   </action>
-  <action name="actionActionSpilthip">
+  <action name="actionSpiltHip">
    <property name="checkable">
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>actionSpilthip</string>
+    <string>SpiltHip</string>
+   </property>
+   <property name="shortcut">
+    <string>E</string>
+   </property>
+  </action>
+  <action name="actionPoint">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Point</string>
+   </property>
+   <property name="shortcut">
+    <string>Q</string>
+   </property>
+  </action>
+  <action name="actionSaveRectangle">
+   <property name="text">
+    <string>SaveRectangle</string>
+   </property>
+   <property name="shortcut">
+    <string>S</string>
+   </property>
+  </action>
+  <action name="actionSaveBMP">
+   <property name="text">
+    <string>SaveBMP</string>
    </property>
   </action>
  </widget>
@@ -90,7 +195,7 @@
   <customwidget>
    <class>ImageLabel</class>
    <extends>QLabel</extends>
-   <header>ImageLabel.h</header>
+   <header>View/ImageLabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
